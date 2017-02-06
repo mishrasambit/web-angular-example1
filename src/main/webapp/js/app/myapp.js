@@ -1,7 +1,7 @@
 var app = angular.module("firstmodule",[]);
 
 app.controller("firstcontroller",
-    function($scope,$rootScope, firstservice ){
+    function($scope,$rootScope, firstservice, UserService ){
        $scope.name ="sambit";
        $scope.showfirstname = function(){
             $scope.name = $rootScope.firstname;
@@ -9,6 +9,13 @@ app.controller("firstcontroller",
 
        $scope.showfromservice= function(){
            $scope.name = firstservice.greetingmsg();
+       }
+
+       $scope.getallusers = function(){
+            UserService.fetchAllUsers().then(
+                function(success){console.log(success)},
+                function(error){console.log(error)}
+            );
        }
     }
 );
@@ -68,6 +75,6 @@ app.directive("showperson", function(){
            person :"=user"
         },
         restrict : "EA",
-        templateUrl : "template/person.html"           
+        templateUrl : "template/person.html"
     };
 });
