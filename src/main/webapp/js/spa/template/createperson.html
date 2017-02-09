@@ -1,0 +1,38 @@
+<div class="panel panel-default" ng-controller="createPersonController as ctrl" >
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+    <div class="formcontainer">
+        <form ng-submit="ctrl.creatuser()" name="myForm" class="form-horizontal">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable" for="unname">Name</label>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="ctrl.username"  id="unname" class="form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable" for="address">Address</label>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="ctrl.address"  id="address" class="form-control input-sm" placeholder="Enter your address [This field is validation free]" required ng-minlength="3"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable" for="email">Email</label>email
+                    <div class="col-md-7">
+                        <input type="text" ng-model="ctrl.email" id="email" class="form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-actions floatRight">
+                    <input type="submit"  value="Register" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                    <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

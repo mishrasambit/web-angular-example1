@@ -1,0 +1,35 @@
+<div class="panel panel-default" ng-controller="showPersonController as ctrl" ng-init="ctrl.showPerson()">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+    <div class="formcontainer">
+        <form ng-submit="ctrl.creatuser()" name="myForm" class="form-horizontal">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable">Name</label>
+                    <div class="col-md-7">
+                        <span type="text" ng-bind="ctrl.user.username" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable">Address</label>
+                    <div class="col-md-7">
+                        <span type="text" ng-bind="ctrl.user.address" class="form-control input-sm"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-2 control-lable" >Email</label>email
+                    <div class="col-md-7">
+                        <span type="text" ng-bind="ctrl.user.email" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </form>
+    </div>
+</div>
