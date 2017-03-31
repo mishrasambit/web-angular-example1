@@ -1,5 +1,6 @@
 package com.speed.mixer.controller;
 
+import com.speed.mixer.model.TestUser;
 import com.speed.mixer.model.User;
 import com.speed.mixer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -110,6 +113,15 @@ public class UserController {
 
         userService.deleteAllUsers();
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.GET)
+    public ResponseEntity<Object> addUserwithQueryparams(@Valid TestUser user, BindingResult bindingResult) {
+        System.out.println("Test User " + user.getUsername());
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<Object>(user, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<Object>(user, HttpStatus.OK);
     }
 
 
