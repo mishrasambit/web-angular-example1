@@ -78,3 +78,12 @@ app.directive("showperson", function(){
         templateUrl : "template/person.html"
     };
 });
+
+app.controller("materialController",
+    function($scope,$rootScope ){
+      $scope.showLeftSidenav = false;
+      $scope.toggleLeftSidenav = function(){
+        $scope.showLeftSidenav = !$scope.showLeftSidenav;
+      };
+    }
+);
